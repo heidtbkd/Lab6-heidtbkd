@@ -1,0 +1,9 @@
+Language:
+Country/Region:
+
+helloWorld = 
+enterName = 
+pleasedTo = 
+asOf = 
+youOwe = 
+farwell = 
