@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -23,13 +25,11 @@ public class PrintBalance{
 	
 		Scanner scanInput = new Scanner(System.in);
 		Date today = new Date();
+		//gets the locale
+		String lang = scanInput.nextLine();
+		String count = scanInput.nextLine();
 		
-		Locale enLocale = new Locale("en", "US");
-		Locale caLocale = new Locale("fr", "CA");
-		Locale frLocale = new Locale("fr", "FR");
-		Locale deLocale = new Locale("de", "DE");
-		
-		Locale currentLocale = deLocale;
+		Locale currentLocale = new Locale(lang,count);
 		
 		ResourceBundle messages = ResourceBundle.getBundle("MessageBundle", currentLocale);
 		
@@ -44,10 +44,12 @@ public class PrintBalance{
 		System.out.println(messages.getString("pleasedTo") + " " + name);
 		
 		//print today's date, balance and bid goodbye
-		//"As of : "
-		System.out.println(messages.getString("asOf")+ today.toString());
+		//converts to locale
+		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.FULL,DateFormat.FULL,currentLocale);
+		df.format(today);
+		System.out.println(messages.getString("asOf")+ " " + today.toString());
 		//"You owe the school $9876543.21"
-		System.out.println(messages.getString("youOwe"));
+		System.out.println(messages.getString("youOwe") + " " + messages.getString("curr") + " " + Currency.getInstance(currentLocale));
 		//"Good Bye"
 		System.out.println(messages.getString("farwell"));
 	}

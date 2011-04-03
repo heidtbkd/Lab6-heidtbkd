@@ -6,4 +6,6 @@ enterName =
 pleasedTo = 
 asOf = 
 youOwe = 
+curr = 
 farwell = 
+
