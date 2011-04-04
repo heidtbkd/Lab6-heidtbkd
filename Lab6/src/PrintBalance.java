@@ -1,4 +1,5 @@
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
@@ -49,6 +50,7 @@ public class PrintBalance{
 		df.format(today);
 		System.out.println(messages.getString("asOf")+ " " + today.toString());
 		//"You owe the school $9876543.21"
+
 		System.out.println(messages.getString("youOwe") + " " + messages.getString("curr") + " " + Currency.getInstance(currentLocale));
 		//"Good Bye"
 		System.out.println(messages.getString("farwell"));
